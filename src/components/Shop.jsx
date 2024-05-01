@@ -1,11 +1,19 @@
-import React from 'react';
+import React from "react";
+import { useLoaderData } from "react-router-dom";
+import SingelCart from "./SingelCart";
 
 const Shop = () => {
-    return (
-        <div>
-            <h1>shop</h1>
-        </div>
-    );
+  const products = useLoaderData();
+  console.log(products);
+  return (
+    <div className="my-container">
+      <div className="product-container">
+        {products.map((product) => (
+          <SingelCart key={product.id} product={product} />
+        ))}
+      </div>
+    </div>
+  );
 };
 
 export default Shop;
